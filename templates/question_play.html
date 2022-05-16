@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>Write Question</title>
+{% endblock %}
+
+{% block name %}
+    <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+        <h1 class="display-4 fw-normal">Play question.</h1>
+        <p class="fs-5 text-muted">Write your answer and submit!</p>
+        {% if msg %}
+            <p class="fs-5 text-muted">{{ msg }}</p>
+        {% endif %}
+    </div>
+{% endblock %}
+{% block body %}
+    <main>
+        <span>Title: {{ question.title }}</span>
+        <p>Description: {{ question.desc }}</p>
+        <p>Cost: {{ question.cost }}</p>
+        <form method="post">
+            <input type="text" name="answer" placeholder="answer" required>
+            <button type="submit">submit</button>
+        </form>
+
+    </main>
+
+
+
+{% endblock %}
+

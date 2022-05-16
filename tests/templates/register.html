@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>Register</title>
+{% endblock %}
+
+{% block name %}
+    <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+        <h1 class="display-4 fw-normal">Register</h1>
+        <p class="fs-5 text-muted">Here you can register and start playing!</p>
+        {% if error %}
+            <p class="fs-5 text-muted">Error: {{ error }}</p>
+        {% endif %}
+    </div>
+{% endblock %}
+{% block body %}
+    <form class="row row-cols-lg-auto g-3" method="post">
+        <div class="col">
+            <label class="visually-hidden" for="inline-form-name">Name</label>
+            <input type="text" class="form-control" id="inline-form-name" name="name" maxlength="25" minlength="5"
+                   placeholder="Name" required>
+        </div>
+
+        <div class="col">
+            <label class="visually-hidden" for="inline-form-website">Password</label>
+            <input type="password" class="form-control" id="inline-form-website" name="password"
+                   maxlength="30" minlength="5" placeholder="Password" required>
+        </div>
+
+        <div class="col">
+            <button type="submit" class="btn btn-outline-primary btn-sm m-0 waves-effect"
+                    style="width: 75px; height: 35px">register
+            </button>
+        </div>
+    </form>
+{% endblock %}
+

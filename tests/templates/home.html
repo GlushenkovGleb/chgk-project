@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>Register</title>
+{% endblock %}
+
+{% block name %}
+    <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+        <h1 class="display-4 fw-normal">Home</h1>
+        <p class="fs-5 text-muted">Here you can choose question and try to solve it!</p>
+        {% if error %}
+            <p class="fs-5 text-muted">Error: {{ error }}</p>
+        {% endif %}
+    </div>
+{% endblock %}
+{% block body %}
+    <main>
+        <table class="table table-hover">
+
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Title</th>
+                <th>Cost</th>
+            </tr>
+            </thead>
+
+            <tbody>
+
+            {% for question in questions %}
+                <tr>
+
+                        <th scope="row">{{ question.id }}</th>
+                        <td>
+                            <span>{{ question.title }}</span>
+                        </td>
+                        <td>
+                            <span>{{ question.cost }}</span>
+                        </td>
+
+                        <td>
+                            <a href="http://127.0.0.1:8000/questions/{{ question.id }}"
+                                                    class="btn btn-outline-primary"
+                                                    role="button" style="border: none">Play</a>
+                        </td>
+                </tr>
+            {% endfor %}
+
+            </tbody>
+
+        </table>
+
+
+    </main>
+{% endblock %}
+

@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>Write Question</title>
+{% endblock %}
+
+{% block name %}
+    <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+        <h1 class="display-4 fw-normal">Add question</h1>
+        <p class="fs-5 text-muted">Here you can add your own question.</p>
+        {% if error %}
+            <p class="fs-5 text-muted">{{ error }}</p>
+        {% endif %}
+    </div>
+{% endblock %}
+{% block body %}
+    <form method="post">
+        <div class="form-group">
+            <label for="exampleFormControlInput1">Title</label>
+            <input type="text" class="form-control" name="title" id="exampleFormControlInput1" placeholder="title"
+                   minlength="7" maxlength="25" required>
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlInput1">Cost</label>
+            <input type="number" class="form-control" name="cost" id="exampleFormControlInput1"
+                   placeholder="Cost of your question"
+                   min="0.01" max="100000" step="0.01" required>
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlTextarea1">Description</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" name="desc" rows="5" placeholder="text of question"
+                      maxlength="250" minlength="25" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlInput1">Answer</label>
+            <input type="text" class="form-control" name="answer" id="exampleFormControlInput1" placeholder="title"
+                   minlength="1" maxlength="25" required>
+        </div>
+
+        <div class="col">
+            <button type="submit" class="btn btn-outline-primary btn-sm m-0 waves-effect"
+                    style="width: 75px; height: 35px">Create
+            </button>
+        </div>
+    </form>
+
+
+
+{% endblock %}
+

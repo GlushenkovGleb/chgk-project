@@ -35,3 +35,6 @@ format: ## Formats all files
 
 .PHONY: ci
 ci:	lint test ## Lint code then run tests
+
+up:
+	python -m app

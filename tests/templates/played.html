@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>Write Question</title>
+{% endblock %}
+
+{% block name %}
+    <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+        <h1 class="display-4 fw-normal">Your played questions</h1>
+        <p class="fs-5 text-muted">Here you can see your played questions and their status.</p>
+        {% if msg %}
+            <p class="fs-5 text-muted">{{ msg }}</p>
+        {% endif %}
+    </div>
+{% endblock %}
+{% block body %}
+    <main>
+        <table class="table table-hover">
+
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Cost</th>
+                <th>Status</th>
+            </tr>
+            </thead>
+
+            <tbody>
+
+            {% for question in questions %}
+                <tr>
+
+                    <th scope="row">{{ question.id }}</th>
+                    <td>
+                        <span>{{ question.title }}</span>
+                    </td>
+                    <td>
+                        <span>{{ question.desc }}</span>
+                    </td>
+                    <td>
+                        <span>{{ question.cost }}</span>
+                    </td>
+                    <td>
+                        <span>{{ question.status.value }}</span>
+                    </td>
+                </tr>
+            {% endfor %}
+
+            </tbody>
+
+        </table>
+
+
+    </main>
+
+
+
+{% endblock %}
+

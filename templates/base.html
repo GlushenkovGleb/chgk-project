@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    {% block title %}{% endblock %}
+</head>
+<body>
+
+<div class="container py-3">
+    <header>
+        <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
+            <ul class="list-inline">
+                <li class="list-inline-item"><a href="http://127.0.0.1:8000/auth/register"
+                                                class="btn btn-outline-primary"
+                                                role="button" style="border: none">register</a></li>
+            </ul>
+            {% if user %}
+                <ul class="list-inline">
+                    <li class="list-inline-item"><a href="http://127.0.0.1:8000/auth/logout"
+                                                    class="btn btn-outline-primary"
+                                                    role="button" style="border: none">logout</a></li>
+                    <li class="list-inline-item">{{ user.name }}: ${{ user.money }}</li>
+                </ul>
+            {% else %}
+                <ul class="list-inline">
+                    <li class="list-inline-item"><a href="http://127.0.0.1:8000/auth/login"
+                                                    class="btn btn-outline-primary"
+                                                    role="button" style="border: none">login</a></li>
+                </ul>
+            {% endif %}
+
+            <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
+                <a class="me-3 py-2 text-dark text-decoration-none" href="http://127.0.0.1:8000/">Home</a>
+                <a class="me-3 py-2 text-dark text-decoration-none" href="http://127.0.0.1:8000/questions/played">Played
+                    Questions</a>
+                <a class="me-3 py-2 text-dark text-decoration-none" href="http://127.0.0.1:8000/questions/written">My
+                    Questions</a>
+                <a href="http://127.0.0.1:8000/questions/create" class="btn btn-primary" role="button">Add Question</a>
+            </nav>
+        </div>
+        {% block name %}
+        {% endblock %}
+    </header>
+
+    {% block body %}{% endblock %}
+
+</div>
+</body>
+</html>
